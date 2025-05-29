@@ -10,4 +10,6 @@ An interactive dashboard for personal finance management, developed with HTML, C
 - **Chart.js**: Library for creating charts.
 - **LocalStorage**: Local data storage.
 
-## Link: https://ghabrielferraridashboard.netlify.app/
+## Link 
+
+https://ghabrielferraridashboard.netlify.app/
