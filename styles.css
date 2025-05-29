@@ -1,0 +1,433 @@
+/* Variáveis CSS para temas claro e escuro */
+:root {
+    /* Cores para o tema claro (padrão) */
+    --bg-color: #f5f7fa;
+    --card-bg: #ffffff;
+    --text-color: #333333;
+    --border-color: #e0e0e0;
+    --primary-color: #4361ee;
+    --secondary-color: #3f37c9;
+    --success-color: #4caf50;
+    --danger-color: #f44336;
+    --warning-color: #ff9800;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    --chart-grid: rgba(0, 0, 0, 0.1);
+    --input-bg: #f9f9f9;
+}
+
+/* Variáveis para o tema escuro */
+.dark-mode {
+    --bg-color: #121212;
+    --card-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --border-color: #333333;
+    --primary-color: #738adb;
+    --secondary-color: #5c5fea;
+    --shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    --chart-grid: rgba(255, 255, 255, 0.1);
+    --input-bg: #2d2d2d;
+}
+
+/* Reset e estilos base */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Cabeçalho */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+header h1 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+.theme-toggle button {
+    display: flex;
+    align-items: center;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    padding: 8px 15px;
+    border-radius: 20px;
+    cursor: pointer;
+    color: var(--text-color);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle button:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.theme-toggle i {
+    margin-right: 8px;
+}
+
+/* Layout do Dashboard usando CSS Grid */
+.dashboard {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 20px;
+    margin-bottom: 30px;
+}
+
+/* Cartões do Dashboard */
+.card {
+    background-color: var(--card-bg);
+    border-radius: 10px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.card h2 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--primary-color);
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 10px;
+}
+
+/* Posicionamento dos cartões no grid */
+.summary-card {
+    grid-column: span 12;
+}
+
+.chart-card {
+    grid-column: span 8;
+}
+
+.form-card {
+    grid-column: span 4;
+}
+
+.goals-card {
+    grid-column: span 4;
+}
+
+.expenses-list-card {
+    grid-column: span 8;
+}
+
+/* Conteúdo do cartão de resumo */
+.summary-content {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.summary-item {
+    flex: 1;
+    min-width: 200px;
+    padding: 15px;
+    text-align: center;
+    border-right: 1px solid var(--border-color);
+}
+
+.summary-item:last-child {
+    border-right: none;
+}
+
+.summary-item h3 {
+    font-size: 1rem;
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.amount {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+/* Estilos para o gráfico */
+.chart-container {
+    width: 100%;
+    height: 300px;
+    position: relative;
+}
+
+/* Estilos para o formulário */
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+}
+
+.error-message {
+    color: var(--danger-color);
+    font-size: 0.85rem;
+    margin-top: 5px;
+    display: none;
+}
+
+.btn-submit {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.btn-submit:hover {
+    background-color: var(--secondary-color);
+}
+
+/* Estilos para metas */
+.goals-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.goal-form {
+    display: flex;
+    gap: 10px;
+}
+
+.goal-form input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    background-color: var(--input-bg);
+    color: var(--text-color);
+}
+
+.progress-bar-container {
+    width: 100%;
+    height: 20px;
+    background-color: var(--input-bg);
+    border-radius: 10px;
+    margin: 10px 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background-color: var(--primary-color);
+    width: 0%;
+    transition: width 0.5s ease-in-out;
+}
+
+#progress-percentage {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Área de feedback para mensagens */
+.feedback-message {
+    min-height: 50px; /* Altura fixa para evitar saltos no layout */
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: 500;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.feedback-message.success {
+    background-color: var(--success-color);
+    color: white;
+    opacity: 1;
+}
+
+.feedback-message.error {
+    background-color: var(--danger-color);
+    color: white;
+    opacity: 1;
+}
+
+/* Estilos para a tabela de gastos */
+.expenses-list-container {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+tr:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.dark-mode tr:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+.action-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--danger-color);
+    font-size: 1rem;
+}
+
+/* Rodapé */
+footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-color);
+    opacity: 0.8;
+}
+
+/* Animações */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.card {
+    animation: fadeIn 0.5s ease-out forwards;
+}
+
+.chart-card {
+    animation-delay: 0.2s;
+}
+
+.form-card {
+    animation-delay: 0.3s;
+}
+
+.goals-card {
+    animation-delay: 0.4s;
+}
+
+.expenses-list-card {
+    animation-delay: 0.5s;
+}
+
+/* Media Queries para Responsividade */
+@media (max-width: 1024px) {
+    .chart-card {
+        grid-column: span 12;
+    }
+    
+    .form-card {
+        grid-column: span 12;
+    }
+    
+    .goals-card {
+        grid-column: span 12;
+    }
+    
+    .expenses-list-card {
+        grid-column: span 12;
+    }
+}
+
+@media (max-width: 768px) {
+    .summary-content {
+        flex-direction: column;
+    }
+    
+    .summary-item {
+        border-right: none;
+        border-bottom: 1px solid var(--border-color);
+        padding: 15px 0;
+    }
+    
+    .summary-item:last-child {
+        border-bottom: none;
+    }
+    
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .theme-toggle {
+        margin-top: 15px;
+    }
+}
+
+@media (max-width: 480px) {
+    .container {
+        padding: 10px;
+    }
+    
+    .card {
+        padding: 15px;
+    }
+    
+    .amount {
+        font-size: 1.5rem;
+    }
+    
+    header h1 {
+        font-size: 1.5rem;
+    }
+}
